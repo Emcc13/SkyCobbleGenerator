@@ -1,0 +1,8 @@
+name: Cobbler
+author: Emcc13
+description: Cobble generator for Skyblock
+version: ${project.version}
+depend: []
+api-version: 1.18
+
+main: com.github.emcc13.cobbler.Cobbler
