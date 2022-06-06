@@ -5,7 +5,9 @@ import org.bukkit.configuration.Configuration;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.plugin.Plugin;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public enum CobbleConfig implements ConfigInterface {
@@ -83,10 +85,6 @@ public enum CobbleConfig implements ConfigInterface {
         return this.value;
     }
 
-//    public String key() {
-//        return this.name().replace('$', '.').replace('ß', '-');
-//    }
-
     public String key(){
         return this.key;
     }
@@ -122,11 +120,11 @@ public enum CobbleConfig implements ConfigInterface {
         return cachedConfig; //(cachedConfig);
     }
 
-    private static Map<String, Generator> getSubConfig(ConfigurationSection cs) {
-        Map<String, Generator> sub_conf = new HashMap<String, Generator>();
+    private static List<Generator> getSubConfig(ConfigurationSection cs) {
+        List<Generator> sub_conf = new ArrayList<>();
         try {
             for (String sub_key : cs.getKeys(false)) {
-                sub_conf.put(sub_key, new Generator(sub_key, cs.getConfigurationSection(sub_key)));
+                sub_conf.add(new Generator(sub_key, cs.getConfigurationSection(sub_key)));
             }
         } catch (NullPointerException exception) {
         }

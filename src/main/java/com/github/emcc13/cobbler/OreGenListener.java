@@ -1,6 +1,6 @@
 package com.github.emcc13.cobbler;
 
-import java.util.Map;
+import java.util.List;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -38,7 +38,7 @@ public class OreGenListener implements Listener {
         }
         Material m = Material.COBBLESTONE;
         Material tmp;
-        for (Generator gen : ((Map<String, Generator>)this.og.cachedConfig.get(w)).values()){
+        for (Generator gen : ((List<Generator>)this.og.cachedConfig.get(w))){
             tmp = gen.getMaterial(b.getY());
             if (tmp != null){
                 m = tmp;
